@@ -19,8 +19,9 @@ public class LoginTest
     
 	
     @BeforeMethod
-    public void setup() {
-    	System.setProperty("webdriver.chrome.driver", "/Users/Shalu/eclipse-workspace/Sample/Resources/chromedriver.exe");	
+    public void setup() {	
+    	String path = System.getProperty("user.dir");
+    	System.setProperty("webdriver.chrome.driver", path+"\\Resources\\chromedriver.exe");	
 		//launch chrome
     	driver = new ChromeDriver();
 		driver.manage().window().maximize();
