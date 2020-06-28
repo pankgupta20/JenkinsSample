@@ -3,6 +3,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -23,7 +24,12 @@ public class LoginTest
     	String path = System.getProperty("user.dir");
     	System.setProperty("webdriver.chrome.driver", path+"\\Resources\\chromedriver.exe");	
 		//launch chrome
-    	driver = new ChromeDriver();
+    	ChromeOptions chromeOptions = new ChromeOptions();
+    	//chromeOptions.addArguments("--verbose");
+        chromeOptions.addArguments("--whitelisted-ips=''");
+		/* chromeOptions.addArguments("--proxy-server=192.68.1.14:8080"); */
+    	
+    	driver = new ChromeDriver(chromeOptions);
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		
@@ -39,7 +45,9 @@ public class LoginTest
     	loginPage.Login("admin", "admin");
     	loginPage.ClickLogin();
     	Thread.sleep(2000);
+    	System.out.println("text: "+homePage.getFormText());
     	Assert.assertTrue(homePage.getFormText().contains("Form"));
+    	System.out.println("Test Completed Successfully");
     }
     
     @AfterMethod
