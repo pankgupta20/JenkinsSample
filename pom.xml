@@ -47,8 +47,6 @@
 							<includes>
 								<include>**/*testng.xml</include>
 							</includes>
-							<!-- <outputDirectory>${project.build.directory}/testng-report-html</outputDirectory>
-							<cucumberOutput>${project.build.directory}/testng.json</cucumberOutput> -->
 						</configuration>
 					</execution>
 				</executions>

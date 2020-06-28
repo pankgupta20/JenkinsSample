@@ -26,7 +26,7 @@ public class LoginTest
 		//launch chrome
     	ChromeOptions chromeOptions = new ChromeOptions();
     	//chromeOptions.addArguments("--verbose");
-        chromeOptions.addArguments("--whitelisted-ips=''");
+        chromeOptions.addArguments("--whitelisted-ips='192.68.1.14'");
 		/* chromeOptions.addArguments("--proxy-server=192.68.1.14:8080"); */
     	
     	driver = new ChromeDriver(chromeOptions);
